@@ -1,8 +1,7 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :imageUrl
+  attributes :id, :name, :image_url
+  # I created a file called serializer.rb in my initializers and added this block of code, which does the camelcasing for us:
+  # ActiveModelSerializers.config.key_transform = :camel_lower
 
-  def imageUrl
-    object.image_url
-  end
 
 end
