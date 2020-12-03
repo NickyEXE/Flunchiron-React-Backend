@@ -18,8 +18,4 @@ class Restaurant < ApplicationRecord
     )
   end
 
-  def imageUrl
-    image_url
-  end
-
 end
