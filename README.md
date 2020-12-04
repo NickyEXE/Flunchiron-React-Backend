@@ -14,10 +14,15 @@ Fortunately, we have Flatiron's styling available to us, and a yelp_search model
 
 ## To start
 
+
 Get a YELP API key if you're working on this from home. Make a file titled ".env" in your root directory, and add your API key in the format:
 `YELP_KEY=YOUR_KEY_HERE`
 
 This will allow you to store your API key for your app without pushing it up to GitHub accidentally and allowing you to get pwned. To access it in our app, we can now simply call `ENV['YELP_KEY']`. Test it out in `rails console` if you don't believe me!
+
+Next, you need a secret key for encrypting JWT tokens.
+
+add a `JWT_KEY=YOUR_SECRET_PASSWORD` as well!
 
 Remember to bundle install!
 

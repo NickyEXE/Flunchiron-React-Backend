@@ -1,4 +1,6 @@
 class Restaurant < ApplicationRecord
+  has_many :reviews
+  has_many :users, through: :reviews
 
   def self.get_restaurants_from_yelp(location)
     res = YelpSearch.new(location)
