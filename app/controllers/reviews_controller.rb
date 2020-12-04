@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :set_current_user
 
   def create
-    review = @current_user.reviews.create(review_params)
+    review = logged_in_user.reviews.create(review_params)
     render json: review
   end
 

@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :set_current_user, only: [:autologin]
 
   def login
     user = User.find_by(username: params[:username])
@@ -13,8 +12,8 @@ class SessionsController < ApplicationController
   end
 
   def autologin
-    if @current_user
-      render json: {user: UserSerializer.new(@current_user)}
+    if logged_in_user
+      render json: {user: UserSerializer.new(logged_in_user)}
     end
   end
 end

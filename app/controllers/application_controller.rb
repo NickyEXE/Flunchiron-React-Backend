@@ -12,8 +12,8 @@ class ApplicationController < ActionController::API
     JWT.decode(user_token, ENV["JWT_KEY"])
   end
 
-  def set_current_user
-    @current_user = User.find_by_id(decode_token[0]["user_id"])
+  def logged_in_user
+    User.find_by_id(decode_token[0]["user_id"])
   end
 
 end
