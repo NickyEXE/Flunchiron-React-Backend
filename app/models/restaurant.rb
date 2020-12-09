@@ -20,4 +20,8 @@ class Restaurant < ApplicationRecord
     )
   end
 
+  def self.kinds_of_food
+    pluck(:kind_of_food).map{|string| string.split(", ")}.flatten.uniq.sort
+  end
+
 end

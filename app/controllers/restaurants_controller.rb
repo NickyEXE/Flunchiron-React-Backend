@@ -2,7 +2,8 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show]
 
   def index
-    render json: Restaurant.all
+    # render json: {restaurants: Restaurant.all.map{|r| RestaurantSerializer.new(r)}, kindsOfFood: Restaurant.kinds_of_food}
+    render json: {restaurants: ActiveModelSerializers::SerializableResource.new(Restaurant.all, each_serializer: RestaurantSerializer), kindsOfFood: Restaurant.kinds_of_food}
   end
 
   def show
